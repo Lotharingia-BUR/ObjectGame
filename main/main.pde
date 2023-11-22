@@ -9,3 +9,7 @@ void draw(){
   background(255, 255, 255);
   ship.drawShip();
 }
+
+void keyPressed() {
+  ship.shoot();
+}
