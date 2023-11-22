@@ -2,7 +2,14 @@ Shot shot;
 class Ship {
   PVector pos;
   float border = 20;
-  float size = 40;
+  float size;
+  float fireRate;
+  
+  //stating stats
+  Ship(){
+   size = 40;
+   fireRate = 20;
+  }
   void drawShip() {
     pos = new PVector(constrain(pmouseX, 0 + border , width - border), constrain(pmouseY, 0 + border, height  - border)); 
     //Draw the ship and hitbox

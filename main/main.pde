@@ -1,11 +1,13 @@
 Ship ship;
 ArrayList<Shot> shotList = new ArrayList<Shot>();
+float shotCooldown;
 
-int shotCooldown;
 
 void setup() {
   size(800, 1000);
   ship = new Ship();
+  
+
 }
 
 void draw(){
@@ -28,6 +30,6 @@ void keyPressed() {
   if (shotCooldown < 0) {
     shotList.add(new Shot(ship.pos.x, ship.pos.y));
     //set how long cooldown is!
-    shotCooldown = 10;
+    shotCooldown = ship.fireRate;
   }
 }
