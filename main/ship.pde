@@ -8,7 +8,7 @@ class Ship {
   //stating stats
   Ship(){
    size = 40;
-   fireRate = 20;
+   fireRate = 10;
   }
   void drawShip() {
     pos = new PVector(constrain(pmouseX, 0 + border , width - border), constrain(pmouseY, 0 + border, height  - border)); 
@@ -31,12 +31,4 @@ class Ship {
     noFill();
     rect(mouseX, mouseY, size/3, size); 
   }
-  
-  //void drawShot() {
-  //  // change to spawn bullet
-  //  // must write that object
-  //  circle(pos.x, pos.y - size/1.8 , 10);
-  //  shot = new Shot(pos.x, pos.y - size/1.8);
-  //  shot.drawShot();
-  //}
 }
