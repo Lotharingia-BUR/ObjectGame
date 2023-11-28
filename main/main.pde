@@ -1,7 +1,9 @@
 Ship ship;
 BulletSpawner bulletSpawner;
 ArrayList<Shot> shotList = new ArrayList<Shot>();
+ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
 float shotCooldown;
+float[][] spawnList = {{10, 1, 1, 1, 10, 200, 200, 0, 0, 1}};
 
 
 void setup() {
@@ -21,6 +23,17 @@ void draw(){
     select.drawShot();
     if (select.pos.y < 0) {
       shotList.remove(i);
+    }
+  }
+  
+  //spawn new spawners
+  for (int i = 0; i < spawnList.length; i++) {
+    if (spawnList[i][0] == frameCount) {
+      //Build the Bullet
+      bulletSpawner = new BulletSpawner(spawnList[i][1], spawnList[i][2], spawnList[i][3], 
+                                        spawnList[i][4], spawnList[i][5], spawnList[i][6], 
+                                        spawnList[i][7], spawnList[i][8], spawnList[i][9]);
+     
     }
   }
 }
