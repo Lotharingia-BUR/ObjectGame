@@ -1,4 +1,5 @@
 Ship ship;
+BulletSpawner bulletSpawner;
 ArrayList<Shot> shotList = new ArrayList<Shot>();
 float shotCooldown;
 
@@ -6,8 +7,6 @@ float shotCooldown;
 void setup() {
   size(800, 1000);
   ship = new Ship();
-  
-
 }
 
 void draw(){

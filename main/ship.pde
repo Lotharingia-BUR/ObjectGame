@@ -15,19 +15,19 @@ class Ship {
     //Draw the ship and hitbox
     noStroke();
     rectMode(CENTER);
-    fill(200,200,200);
+    fill(200,200,200); // Light Grey
     triangle(pos.x, pos.y-size/3, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
     triangle(pos.x-size/3, pos.y+size/2, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
     triangle(pos.x+size/3, pos.y+size/2, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
     fill(150,150,150); // Grey
     triangle(pos.x, pos.y+size/2, pos.x-size/4, pos.y-size/3, pos.x+size/4, pos.y-size/3);
     triangle(pos.x, pos.y-size/2, pos.x-size/4, pos.y-size/3, pos.x+size/4, pos.y-size/3);
-    fill(0,0,0);
+    fill(0,0,0); // Black
     triangle(pos.x, pos.y-size/2, pos.x-size/4, pos.y+size/3, pos.x+size/4, pos.y+size/3);
     triangle(pos.x, pos.y+size/2, pos.x-size/4, pos.y+size/3, pos.x+size/4, pos.y+size/3);
-    fill(200,0,0);
+    fill(200,0,0); // Red
     rect(pos.x, pos.y, 2, 2);
-    stroke(200,0,0);
+    stroke(200,0,0); // Red
     noFill();
     rect(mouseX, mouseY, size/3, size); 
   }
