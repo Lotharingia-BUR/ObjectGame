@@ -20,18 +20,24 @@ class BulletSpawner {
   }
   
   void drawSpawner() {
+    noFill();
+    rect(pos.x, pos.y, ship.size/4, ship.size/4);
+    stroke(100,0,0,50);
     fill(0,0,0);
-    stroke(100,0,0);
     ellipse(pos.x, pos.y, ship.size/4, ship.size/4);
   }
   
-  void move() {
-    
-  }
+
   
   void spawnBullet() {
     if (frameCount % fireRate == 0) {
-    println(speed, "shoot", frameCount);
+      
+      println("shot on frame", frameCount);
+    }
   }
+  
+  void move() {
+    pos.add()
   }
+  //create function for determing angle to add to pvector
 }

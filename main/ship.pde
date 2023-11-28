@@ -7,7 +7,7 @@ class Ship {
   
   //stating stats
   Ship(){
-   size = 80;
+   size = 40;
    fireRate = 10;
   }
   void drawShip() {
@@ -27,7 +27,7 @@ class Ship {
     triangle(pos.x, pos.y+size/2, pos.x-size/4, pos.y+size/3, pos.x+size/4, pos.y+size/3);
     fill(200,0,0); // Red
     rect(pos.x, pos.y, 2, 2);
-    stroke(200,0,0); // Red
+    stroke(100,0,0,50); // Red
     noFill();
     rect(mouseX, mouseY, size/3, size); 
   }

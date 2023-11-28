@@ -33,6 +33,10 @@ void draw(){
     bulletSpawner = spawnerList.get(i);
     bulletSpawner.drawSpawner();
     bulletSpawner.spawnBullet();
+    
+    //collision dectection
+    //write custom function
+    
   }
   //spawn new spawners
   for (int i = 0; i < spawnList.length; i++) {
@@ -41,11 +45,13 @@ void draw(){
       spawnerList.add(new BulletSpawner(spawnList[i][1], spawnList[i][2], spawnList[i][3], 
                                         spawnList[i][4], spawnList[i][5], spawnList[i][6], 
                                         spawnList[i][7], spawnList[i][8], spawnList[i][9]));
-     //Something
     }
   }
   
-
+  //End State Check
+  if (frameCount > 1000 && spawnerList.size() == 0) {
+    println("GameEnd");
+  }
 }
 
 void keyPressed() {
