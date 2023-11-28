@@ -8,8 +8,8 @@ ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
 
 float shotCooldown;
                       //ST, P, bP, b#, R, x, y, a, r, s 
-float[][] spawnList = {{10, 1, 1, 1, 10, 200, 200, 0, 0, 1, 3},
-                       {100, 1, 1, 1, 15, 250, 200, 0, 0, 10, 5}};
+float[][] spawnList = {{10, 1, 1, 1, 30, 200, 200, 0, 0, 1, 3},
+                       {100, 1, 1, 1, 50, 250, 200, 0, 0, 10, 5}};
 
 
 void setup() {
@@ -54,11 +54,12 @@ void draw(){
       if (checkHit(bulletSpawner.pos, shot.pos, ship.size/4)) {
         bulletSpawner.health--;
         bulletSpawner.hit();
+        shot.collide();
         shotList.remove(ii);
       }
     }
     
-    //if hurt fully kill
+    //if hurt check fully kill
     if (bulletSpawner.health == 0) {
       spawnerList.remove(i);
       i--;
@@ -79,6 +80,13 @@ void draw(){
     }
   }
   
+  //Move Bullets
+  for (int i = 0; i < bulletList.size(); i++) {
+    bullet = bulletList.get(i);
+    bullet.drawBullet();
+    bullet.move();
+  }
+
   //End State Check
   if (frameCount > 1000 && spawnerList.size() == 0) {
     println("GameEnd");

@@ -1,5 +1,5 @@
 class BulletSpawner {
-  PVector pos2 = new PVector(0, 0);
+  PVector pos2 = new PVector(0.1, 0.2);
   float flyType;
   float bulletType;
   float bulletNumber;
@@ -32,12 +32,10 @@ class BulletSpawner {
     fill(0,0,0);
     ellipse(pos.x, pos.y, ship.size/4, ship.size/4);
   }
-  
 
-  
   void spawnBullet() {
     if (frameCount % fireRate == 0) {
-      bulletList.add(new Bullet(pos, 1, 1, 1));
+      bulletList.add(new Bullet(pos.x, pos.y, 1, 1, 1));
       println("shot on frame", frameCount);
     }
   }

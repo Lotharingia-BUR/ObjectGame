@@ -8,7 +8,7 @@ class Ship {
   //stating stats
   Ship(){
    size = 60;
-   fireRate = 10;
+   fireRate = 5;
   }
   void drawShip() {
     pos = new PVector(constrain(pmouseX, 0 + border , width - border), constrain(pmouseY, 0 + border, height  - border)); 
