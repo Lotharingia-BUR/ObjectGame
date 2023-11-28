@@ -1,11 +1,15 @@
 Ship ship;
+Bullet bullet;
 BulletSpawner bulletSpawner;
+
 ArrayList<Shot> shotList = new ArrayList<Shot>();
+ArrayList<Bullet> bulletList = new ArrayList<Bullet>();
 ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
+
 float shotCooldown;
                       //ST, P, bP, b#, R, x, y, a, r, s 
-float[][] spawnList = {{10, 1, 1, 1, 10, 200, 200, 0, 0, 1},
-                       {100, 1, 1, 1, 10, 250, 200, 0, 0, 10}};
+float[][] spawnList = {{10, 1, 1, 1, 10, 200, 200, 0, 0, 1, 3},
+                       {100, 1, 1, 1, 15, 250, 200, 0, 0, 10, 5}};
 
 
 void setup() {
@@ -31,14 +35,31 @@ void draw(){
   //shoot bullets
   for (int i = 0; i < spawnerList.size(); i++) {
     bulletSpawner = spawnerList.get(i);
-    
+
     bulletSpawner.drawSpawner();
     bulletSpawner.spawnBullet();
     bulletSpawner.move();
+
     
     //if out of bounds remove the spawner
     if (bulletSpawner.pos.x > width) {
       println("Out of Bounds!");
+      spawnerList.remove(i);
+      i--;
+    }
+    
+    //check for shot hit
+    for (int ii = 0; ii < shotList.size(); ii++) {
+      shot = shotList.get(ii);
+      if (checkHit(bulletSpawner.pos, shot.pos, ship.size/4)) {
+        bulletSpawner.health--;
+        bulletSpawner.hit();
+        shotList.remove(ii);
+      }
+    }
+    
+    //if hurt fully kill
+    if (bulletSpawner.health == 0) {
       spawnerList.remove(i);
       i--;
     }
@@ -50,9 +71,11 @@ void draw(){
   for (int i = 0; i < spawnList.length; i++) {
     if (spawnList[i][0] == frameCount) {
       //Build the Bullet
-      spawnerList.add(new BulletSpawner(spawnList[i][1], spawnList[i][2], spawnList[i][3], 
-                                        spawnList[i][4], spawnList[i][5], spawnList[i][6], 
-                                        spawnList[i][7], spawnList[i][8], spawnList[i][9]));
+      spawnerList.add(new BulletSpawner(
+        spawnList[i][1], spawnList[i][2], spawnList[i][3], 
+        spawnList[i][4], spawnList[i][5], spawnList[i][6], 
+        spawnList[i][7], spawnList[i][8], spawnList[i][9], 
+        spawnList[i][10]));
     }
   }
   
@@ -60,6 +83,15 @@ void draw(){
   if (frameCount > 1000 && spawnerList.size() == 0) {
     println("GameEnd");
   }
+}
+
+boolean checkHit(PVector pos1, PVector pos2, float size) {
+  float colX = pos1.x - pos2.x;
+  float colY = pos1.y - pos2.y;
+  if (colX > -size && colX < size && colY > -size && colY < size) {
+    return true;
+  }
+  return false;
 }
 
 void keyPressed() {
