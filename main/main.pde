@@ -31,9 +31,17 @@ void draw(){
   //shoot bullets
   for (int i = 0; i < spawnerList.size(); i++) {
     bulletSpawner = spawnerList.get(i);
+    
     bulletSpawner.drawSpawner();
     bulletSpawner.spawnBullet();
+    bulletSpawner.move();
     
+    //if out of bounds remove the spawner
+    if (bulletSpawner.pos.x > width) {
+      println("Out of Bounds!");
+      spawnerList.remove(i);
+      i--;
+    }
     //collision dectection
     //write custom function
     

@@ -1,4 +1,5 @@
 class BulletSpawner {
+  PVector pos2 = new PVector(0, 0);
   float flyType;
   float bulletType;
   float bulletNumber;
@@ -36,8 +37,10 @@ class BulletSpawner {
     }
   }
   
+  //(distance/int(loc.substring(2))
+  
   void move() {
-    pos.add()
+    pos.add(pos2);
   }
   //create function for determing angle to add to pvector
 }
