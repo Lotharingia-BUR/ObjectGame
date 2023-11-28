@@ -31,7 +31,7 @@ void draw(){
   //shoot bullets
   for (int i = 0; i < spawnerList.size(); i++) {
     bulletSpawner = spawnerList.get(i);
-    bulletSpawner.draw();
+    bulletSpawner.drawSpawner();
     bulletSpawner.spawnBullet();
   }
   //spawn new spawners

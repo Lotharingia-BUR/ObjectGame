@@ -18,9 +18,17 @@ class BulletSpawner {
     rotation = rotat;
     speed = sped;
   }
-  void draw() {
+  
+  void drawSpawner() {
+    fill(0,0,0);
+    stroke(100,0,0);
+    ellipse(pos.x, pos.y, ship.size/4, ship.size/4);
+  }
+  
+  void move() {
     
   }
+  
   void spawnBullet() {
     if (frameCount % fireRate == 0) {
     println(speed, "shoot", frameCount);
