@@ -18,10 +18,12 @@ class BulletSpawner {
     rotation = rotat;
     speed = sped;
   }
-  
+  void draw() {
+    
+  }
   void spawnBullet() {
     if (frameCount % fireRate == 0) {
-    println("shoot", frameCount);
+    println(speed, "shoot", frameCount);
   }
   }
 }

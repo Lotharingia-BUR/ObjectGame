@@ -5,7 +5,7 @@ ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
 float shotCooldown;
                       //ST, P, bP, b#, R, x, y, a, r, s 
 float[][] spawnList = {{10, 1, 1, 1, 10, 200, 200, 0, 0, 1},
-                       {100, 1, 1, 1, 10, 250, 200, 0, 0, 1}};
+                       {100, 1, 1, 1, 10, 250, 200, 0, 0, 10}};
 
 
 void setup() {
@@ -31,7 +31,8 @@ void draw(){
   //shoot bullets
   for (int i = 0; i < spawnerList.size(); i++) {
     bulletSpawner = spawnerList.get(i);
-    
+    bulletSpawner.draw();
+    bulletSpawner.spawnBullet();
   }
   //spawn new spawners
   for (int i = 0; i < spawnList.length; i++) {
