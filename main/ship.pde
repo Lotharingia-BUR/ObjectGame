@@ -7,7 +7,7 @@ class Ship {
   
   //stating stats
   Ship(){
-   size = 60;
+   size = 40;
    fireRate = 5;
   }
   void drawShip() {

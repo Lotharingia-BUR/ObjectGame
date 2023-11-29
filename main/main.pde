@@ -7,18 +7,20 @@ ArrayList<Bullet> bulletList = new ArrayList<Bullet>();
 ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
 
 float shotCooldown;
-                      //ST, P, bP, b#, R, x, y, a, r, s 
-float[][] spawnList = {{10, 1, 1, 1, 30, 200, 200, 0, 0, 1, 3},
-                       {100, 1, 1, 1, 50, 250, 200, 0, 0, 10, 5}};
+                      //ST, P, bP, b#, R, x, y, a, r, s, hp
+float[][] spawnList = {{10, 0, 0, 1, 10, 200, 200, HALF_PI, 0, 1, 3},
+                       {100, 0, 1, 1, 15, 500, 200, QUARTER_PI, QUARTER_PI/4, 1, 5}};
 
 
 void setup() {
   size(800, 1000);
+  noCursor();
   ship = new Ship();
 }
 
 void draw(){
   background(255, 255, 255);
+  
   ship.drawShip();
   
   //lower cooldown on shot
@@ -42,7 +44,7 @@ void draw(){
 
     
     //if out of bounds remove the spawner
-    if (bulletSpawner.pos.x > width) {
+    if (bulletSpawner.pos.x > width || bulletSpawner.pos.x < 0 || bulletSpawner.pos.y > height ||bulletSpawner.pos.y < 0) {
       println("Out of Bounds!");
       spawnerList.remove(i);
       i--;
@@ -51,7 +53,7 @@ void draw(){
     //check for shot hit
     for (int ii = 0; ii < shotList.size(); ii++) {
       shot = shotList.get(ii);
-      if (checkHit(bulletSpawner.pos, shot.pos, ship.size/4)) {
+      if (checkHit(bulletSpawner.pos, shot.pos, 20)) {
         bulletSpawner.health--;
         bulletSpawner.hit();
         shot.collide();
@@ -84,7 +86,11 @@ void draw(){
   for (int i = 0; i < bulletList.size(); i++) {
     bullet = bulletList.get(i);
     bullet.drawBullet();
+    bullet.changeDirection();
     bullet.move();
+    if (bullet.frames > 500) {
+      bulletList.remove(i);
+    }
   }
 
   //End State Check

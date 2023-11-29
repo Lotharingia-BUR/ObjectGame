@@ -15,7 +15,7 @@ class Shot {
   
   void collide(){
     fill(200,0,0);
-    ellipse(pos.x, pos.y - ship.size/2 + 20, 5, 10);
+    ellipse(pos.x, pos.y - ship.size/2 + 20, 5, 5);
   }
 }
 

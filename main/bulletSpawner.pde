@@ -1,5 +1,5 @@
 class BulletSpawner {
-  PVector pos2 = new PVector(0.1, 0.2);
+  PVector pos2;
   float flyType;
   float bulletType;
   float bulletNumber;
@@ -19,6 +19,7 @@ class BulletSpawner {
     bulletNumber = bNum;
     fireRate = bFireRate;
     pos = new PVector(x,y);
+    pos2 = new PVector(0,0);
     angle = angl;
     rotation = rotat;
     speed = sped;
@@ -27,22 +28,32 @@ class BulletSpawner {
   
   void drawSpawner() {
     noFill();
-    rect(pos.x, pos.y, ship.size/4, ship.size/4);
+    rect(pos.x, pos.y, 20, 20);
     stroke(100,0,0,50);
     fill(0,0,0);
-    ellipse(pos.x, pos.y, ship.size/4, ship.size/4);
+    ellipse(pos.x, pos.y, 20, 20);
   }
 
   void spawnBullet() {
     if (frameCount % fireRate == 0) {
-      bulletList.add(new Bullet(pos.x, pos.y, 1, 1, 1));
-      println("shot on frame", frameCount);
+      switch(int(bulletType)) {
+        case 0:
+          bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, rotation, 5));
+          break;
+        case 1:
+          bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, 0+rotation, 5));
+          bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, 0-rotation, 5));
+          
+      }
+      //println("shot on frame", frameCount);
     }
   }
   
   //(distance/int(loc.substring(2))
   
   void move() {
+    pos2.set(speed*cos(angle), speed*sin(angle));
+    print(angle);
     pos.add(pos2);
   }
   
