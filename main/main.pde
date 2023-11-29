@@ -8,8 +8,13 @@ ArrayList<BulletSpawner> spawnerList = new ArrayList<BulletSpawner>();
 
 float shotCooldown;
                       //ST, P, bP, b#, R, x, y, a, r, s, hp
-float[][] spawnList = {{10, 0, 0, 1, 10, 200, 200, HALF_PI, 0, 1, 3},
-                       {100, 0, 1, 1, 15, 500, 200, QUARTER_PI, QUARTER_PI/4, 1, 5}};
+float[][] spawnList = {
+  {50, 0, 0, 1, 10, 100, 0, HALF_PI, 0, 1.2, 2},
+  {60, 0, 0, 1, 10, 100, 0, HALF_PI, 0, 1.2, 2},
+  {70, 0, 0, 1, 10, 100, 0, HALF_PI, 0, 1.2, 2},
+  {100, 0, 1, 1, 15, 0, 50, 0, QUARTER_PI/400, 2, 2},
+  {120, 0, 1, 1, 15, 0, 50, 0, QUARTER_PI/400, 2, 2},
+  {140, 0, 1, 1, 15, 0, 50, 0, QUARTER_PI/400, 2, 2}};
 
 
 void setup() {

@@ -34,7 +34,6 @@ class Bullet {
       case -1:
         break;
       case 0:
-        println("b");
         angle = atan((pos.y - ship.pos.y)/(pos.x - ship.pos.x));
         if (pos.x > ship.pos.x) {
           angle -= PI;
@@ -51,6 +50,5 @@ class Bullet {
   void move() {
     pos.add(pos2);
     frames++;
-    
   }
 }

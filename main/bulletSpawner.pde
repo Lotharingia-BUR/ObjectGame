@@ -41,8 +41,8 @@ class BulletSpawner {
           bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, rotation, 5));
           break;
         case 1:
-          bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, 0+rotation, 5));
-          bulletList.add(new Bullet(pos.x, pos.y, bulletType, 0, 0-rotation, 5));
+          bulletList.add(new Bullet(pos.x, pos.y, bulletType, HALF_PI, 0+rotation, 5));
+          bulletList.add(new Bullet(pos.x, pos.y, bulletType, HALF_PI, 0-rotation, 5));
           
       }
       //println("shot on frame", frameCount);
@@ -53,7 +53,6 @@ class BulletSpawner {
   
   void move() {
     pos2.set(speed*cos(angle), speed*sin(angle));
-    print(angle);
     pos.add(pos2);
   }
   
