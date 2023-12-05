@@ -31,6 +31,7 @@ void setup() {
 }
 
 void draw(){
+  strokeWeight(1);
   frameRate(40);
   background(20, 0, 55);
   ship.drawShip();
@@ -177,11 +178,20 @@ void draw(){
   }
   
   //UI
-  fill(0,0,0);
-  textAlign(LEFT);
-  textSize(20);
-  text(("health " + int(ship.health)), 0, 20);
-  text(score, 0, 40);
+  //fill(0,0,0);
+  //textAlign(LEFT);
+  //textSize(20);
+  //text(("health " + int(ship.health)), 0, 20);
+  //text(score, 0, 40);
+  for (int i = 0; i < 3; i++) {
+    strokeWeight(5);
+    stroke(220, 220, 220);
+    noFill();
+    if ( i < ship.health) {
+      fill(220, 220, 220);
+    }
+    ellipse(20 + (30*i), 980, 20, 20);
+  }
   
   //if no health, die
   if (ship.health < 1) {
@@ -240,3 +250,10 @@ void keyPressed() {
     shotCooldown = ship.fireRate;
   }
 }
+
+
+//Questions
+//Class: A class is its own seprate entity then the main code, with its own global varriables and functions
+//Object: An instance of a class, a class may exist and acts as a template which is then assigned to an object
+//Constructor: A version of an object with preset or defined variables, an object can have multiple constructors
+//Why have tabs: It seprates the code clearly and is industry standard. 

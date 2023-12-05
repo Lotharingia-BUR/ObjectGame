@@ -21,16 +21,18 @@ class Ship {
     rectMode(CENTER);
     
     fill(200,100,100); // red
-    stroke(200,100,100);
-    triangle(pos.x, pos.y-size/3, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
+    noStroke();
     triangle(pos.x-size/3, pos.y+size/2, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
     triangle(pos.x+size/3, pos.y+size/2, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
+    stroke(200,100,100);
+    triangle(pos.x, pos.y-size/3, pos.x-size/2, pos.y+size/3, pos.x+size/2, pos.y+size/3);
     triangle(pos.x, pos.y+size/2, pos.x-size/4, pos.y-size/3, pos.x+size/4, pos.y-size/3);
     triangle(pos.x, pos.y-size/2, pos.x-size/4, pos.y-size/3, pos.x+size/4, pos.y-size/3);
     
     fill(200,200,200); // Light Grey
     stroke(200,200,200);
     triangle(pos.x, pos.y-size/3, pos.x-size/2+3, pos.y+size/3, pos.x+size/2-3, pos.y+size/3);
+    noStroke();
     triangle(pos.x-size/3, pos.y+size/2, pos.x-size/2+3, pos.y+size/3, pos.x+size/2-3, pos.y+size/3);
     triangle(pos.x+size/3, pos.y+size/2, pos.x-size/2+3, pos.y+size/3, pos.x+size/2-3, pos.y+size/3);
     

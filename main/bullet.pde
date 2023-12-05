@@ -37,7 +37,7 @@ class Bullet {
         break;
       case 0:
         angle = atan((pos.y - ship.pos.y)/(pos.x - ship.pos.x));
-        if (pos.x > ship.pos.x) {
+        if (pos.x >= ship.pos.x) {
           angle -= PI;
         }
         pattern = 1;
