@@ -6,6 +6,7 @@ class Bullet {
   float rotation;
   float speed;
   
+  
   int frames = 0;
   
   Bullet(float x, float y, float pat, float angl, float rotat, float sped) {
@@ -15,6 +16,7 @@ class Bullet {
     angle = angl;
     rotation = rotat;
     speed = sped;
+    
   }
   
   void drawBullet() {
