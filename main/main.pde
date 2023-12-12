@@ -177,12 +177,7 @@ void draw(){
     }
   }
   
-  //UI
-  //fill(0,0,0);
-  //textAlign(LEFT);
-  //textSize(20);
-  //text(("health " + int(ship.health)), 0, 20);
-  //text(score, 0, 40);
+  // display health remaining
   for (int i = 0; i < 3; i++) {
     strokeWeight(5);
     stroke(220, 220, 220);
@@ -192,6 +187,9 @@ void draw(){
     }
     ellipse(20 + (30*i), 980, 20, 20);
   }
+  textSize(30);
+  textAlign(LEFT);
+  text(score, 10, 950);
   
   //if no health, die
   if (ship.health < 1) {

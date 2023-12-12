@@ -93,6 +93,8 @@ class BulletSpawner {
     fill(200,0,0);
     ellipse(pos.x, pos.y, 10, 10);
     frameRate(35);
+    //change value based on sprite
+    score += 100*(sprite+1);
   }
   //create function for determing angle to add to pvector
   
